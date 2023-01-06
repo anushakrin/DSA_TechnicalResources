@@ -1,0 +1,24 @@
+Node* removeLastNode(Node* head)
+{
+    if (head == NULL)
+        return NULL;
+ 
+    if (head->next == NULL) {
+        delete head;
+        return NULL;
+    }
+ 
+    // Find the second last node
+    Node* temp = head;
+    while (temp->next->next != NULL)
+        temp = temp->next;
+ 
+    // Delete last node
+    delete (temp->next);
+ 
+    // Change next of second last
+    temp->next = NULL;
+ 
+    return head;
+}
+ 
